@@ -11,7 +11,7 @@ yarn
 
 
 ## Como Usar
-Basta executar o comando para rodar o projeto via navegador:
+Para rodar o projeto via navegador, basta executar o comando:
 ```bash
 yarn web
 ```
