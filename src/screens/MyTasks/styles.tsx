@@ -1,8 +1,9 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import colors from "../../styles/colors";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { FlatList } from "react-native";
-import { shade } from "polished";
+import { FlatList, Platform } from "react-native";
+
+const isNative = Platform.OS !== "web";
 
 export const Container = styled.View`
 	flex: 1;
@@ -19,9 +20,14 @@ export const Title = styled.Text`
 `;
 
 export const FloatButton = styled.TouchableOpacity`
-	position: fixed;
+	position: absolute;
 	bottom: 40px;
 	right: 40px;
+
+	${isNative && css`
+		bottom: 20px;
+		right: 20px;
+	`}
 
 	padding: 10px;
 

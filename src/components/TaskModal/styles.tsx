@@ -1,10 +1,13 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { Platform } from "react-native";
 import WebModal from "modal-enhanced-react-native-web";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 import { transparentize } from "polished";
 import colors from "../../styles/colors";
+
+const isNative = Platform.OS !== "web";
+
 
 export const Container = styled.View`
 	flex: 1;
@@ -52,12 +55,17 @@ export const Title = styled.Text`
 
 export const Input = styled.TextInput`
 	font-size: 16px;
-	height: 20px;
 
 	padding: 20px 10px;
 	margin-bottom: 16px;
 
+	${isNative && css`
+		padding: 10px;
+	`}
+
 	border-radius: 6px;
+
+	color: ${colors.black};
 	background-color: ${colors.gray};
 `;
 
