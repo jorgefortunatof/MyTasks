@@ -1,5 +1,5 @@
 # MyTasks
-Gerenciador de tarefas feito com Expo, disponível no github pages pelo link <a href="https://jorgefortunatof.github.io/MyTasks/" target="_blank">https://jorgefortunatof.github.io/MyTasks/</a>
+Gerenciador de tarefas feito com Expo, acesse o projeto no github pages <a href="https://jorgefortunatof.github.io/MyTasks/" target="_blank">clicando aqui.</a>
 
 
 ## Instalação
