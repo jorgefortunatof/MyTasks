@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from "react";
 import Task from "../../components/Task";
+import TaskCounter from "../../components/TaskCounter";
+import TaskModal from "../../components/TaskModal";
+import TaskType from "../../types/TaskType";
+
+import { useTasks } from "../../hooks/tasks";
+import { ListRenderItem } from "react-native";
 
 import { Container, Title, PlusIcon, FloatButton, TaskList } from "./styles";
-import TaskModal from "../../components/TaskModal";
-import { ListRenderItem } from "react-native";
-import { useTasks } from "../../hooks/tasks";
-import TaskType from "../../types/TaskType";
 
 const MyTask: React.FC = () => {
 	const { tasks } = useTasks();
@@ -29,9 +31,12 @@ const MyTask: React.FC = () => {
 	return (
 		<>
 			<Container>
-				<Title>Minhas tarefas</Title>
+				<Title>Minhas tarefas.</Title>
+
+				<TaskCounter />
+
 				<TaskList
-					keyExtractor={(task) => task.id}
+					keyExtractor={(task) => String(task.id)}
 					data={tasks}
 					renderItem={renderItem}
 				/>
@@ -45,6 +50,7 @@ const MyTask: React.FC = () => {
 					setTaskSelected({} as TaskType);
 				}}
 			/>
+
 			<FloatButton onPress={() => setShowModal(true)}>
 				<PlusIcon />
 			</FloatButton>

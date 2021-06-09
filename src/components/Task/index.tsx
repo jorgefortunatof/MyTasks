@@ -25,7 +25,8 @@ const Task: React.FC<TaskProps> = ({ data, toggleEdit }) => {
 	const [checked, setChecked] = useState(completed);
 
 	useEffect(() => {
-		updateTask(data);
+		const updatedTask = { ...data, completed: checked };
+		updateTask(updatedTask);
 	}, [checked]);
 
 	return (

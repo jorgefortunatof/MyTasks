@@ -74,7 +74,6 @@ export let Modal = styled.Modal`
 
 if (Platform.OS === "web") {
 	Modal = styled(WebModal)`
-		flex: 1;
-		margin: 0;
+		margin: -0.1px;
 	`;
 }

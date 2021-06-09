@@ -7,7 +7,7 @@ export const Container = styled.View`
 	position: relative;
 
 	min-height: 100px;
-	margin-top: 20px;
+	margin-bottom: 20px;
 	padding: 35px;
 	border-radius: 12px;
 
