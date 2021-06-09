@@ -1,45 +1,42 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
-
-type Task = {
-	id: number;
-	title: string;
-	description: string;
-	complete: boolean;
-};
+import TaskType from "../types/TaskType";
 
 type TasksContextData = {
-	tasks: Task[];
-	addTask: (task: Task) => void;
-	removeTask: (task: Task) => void;
-	updateTask: (task: Task) => void;
+	tasks: TaskType[];
+	// taskSelectedToEdit: TaskType;
+
+	addTask: (task: TaskType) => void;
+	removeTask: (task: TaskType) => void;
+	updateTask: (task: TaskType) => void;
 };
 
 const TaskContext = createContext<TasksContextData>({} as TasksContextData);
 
 export const TasksProvider: React.FC = ({ children }) => {
-	const [tasks, setTasks] = useState<Task[]>([
+	const [taskToEdit, setTaskToEdit] = useState<TaskType>({} as TaskType);
+	const [tasks, setTasks] = useState<TaskType[]>([
 		{
 			id: Math.random(),
 			title: "Tarefa 01",
 			description: "Tarefa 01 descrição",
-			complete: false,
+			completed: false,
 		},
 		{
 			id: Math.random(),
 			title: "Tarefa 02",
 			description: "Tarefa 02 descrição",
-			complete: false,
+			completed: false,
 		},
 		{
 			id: Math.random(),
 			title: "Tarefa 03",
 			description: "Tarefa 03 descrição",
-			complete: false,
+			completed: false,
 		},
 	]);
 
 	const updateTask = useCallback(
-		(task: Task) => {
+		(task: TaskType) => {
 			const taskIndex = tasks.findIndex((itemTask) => itemTask.id === task.id);
 
 			if (taskIndex < 0) return;
@@ -53,7 +50,7 @@ export const TasksProvider: React.FC = ({ children }) => {
 	);
 
 	const addTask = useCallback(
-		(task: Task) => {
+		(task: TaskType) => {
 			const newTasks = [...tasks, task];
 			setTasks(newTasks);
 		},
@@ -61,7 +58,7 @@ export const TasksProvider: React.FC = ({ children }) => {
 	);
 
 	const removeTask = useCallback(
-		(task: Task) => {
+		(task: TaskType) => {
 			const newTasks = tasks.filter((itemTask) => itemTask.id !== task.id);
 
 			setTasks(newTasks);

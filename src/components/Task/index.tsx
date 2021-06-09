@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useTasks } from "../../hooks/tasks";
+import TaskType from "../../types/TaskType";
 import {
 	Container,
 	Title,
@@ -11,21 +13,28 @@ import {
 } from "./styles";
 
 type TaskProps = {
-	title: string;
-	description: string;
-	completed: boolean;
+	data: TaskType;
+
+	toggleEdit: (task: TaskType) => void;
 };
 
-const Task: React.FC<TaskProps> = ({ title, description, completed }) => {
+const Task: React.FC<TaskProps> = ({ data, toggleEdit }) => {
+	const { title, description, completed } = data;
+
+	const { updateTask, removeTask } = useTasks();
 	const [checked, setChecked] = useState(completed);
+
+	useEffect(() => {
+		updateTask(data);
+	}, [checked]);
 
 	return (
 		<Container>
-			<RemoveIconContainer>
+			<RemoveIconContainer onPress={() => removeTask(data)}>
 				<RemoveIcon />
 			</RemoveIconContainer>
 
-			<EditIconContainer>
+			<EditIconContainer onPress={() => toggleEdit(data)}>
 				<EditIcon />
 			</EditIconContainer>
 

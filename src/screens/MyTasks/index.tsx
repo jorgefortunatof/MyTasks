@@ -1,89 +1,50 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Task from "../../components/Task";
 
 import { Container, Title, PlusIcon, FloatButton, TaskList } from "./styles";
 import TaskModal from "../../components/TaskModal";
 import { ListRenderItem } from "react-native";
-
-let tasks = [
-	{
-		title: "Tarefa 01",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 02",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-	{
-		title: "Tarefa 03",
-		description: "Descrição da tarefa01",
-		completed: false,
-	},
-];
-
-type Task = {
-	title: string;
-	description: string;
-	completed: boolean;
-};
+import { useTasks } from "../../hooks/tasks";
+import TaskType from "../../types/TaskType";
 
 const MyTask: React.FC = () => {
-	const [showModal, setShowModal] = useState(false);
+	const { tasks } = useTasks();
 
-	const renderItem: ListRenderItem<Task> = ({ item }) => (
-		<Task
-			title={item.title}
-			description={item.description}
-			completed={item.completed}
-		/>
+	const [showModal, setShowModal] = useState(false);
+	const [taskSelected, setTaskSelected] = useState({} as TaskType);
+
+	const toggleEditTask = useCallback(
+		(task) => {
+			setTaskSelected(task);
+			setShowModal(true);
+		},
+		[setTaskSelected, setShowModal]
+	);
+
+	const renderItem: ListRenderItem<TaskType> = useCallback(
+		({ item }) => <Task data={item} toggleEdit={toggleEditTask} />,
+		[toggleEditTask]
 	);
 
 	return (
 		<>
 			<Container>
 				<Title>Minhas tarefas</Title>
-
-				<TaskList data={tasks} renderItem={renderItem} />
+				<TaskList
+					keyExtractor={(task) => task.id}
+					data={tasks}
+					renderItem={renderItem}
+				/>
 			</Container>
 
-			<TaskModal visible={showModal} closeModal={() => setShowModal(false)} />
+			<TaskModal
+				taskSelected={taskSelected}
+				visible={showModal}
+				closeModal={() => {
+					setShowModal(false);
+					setTaskSelected({} as TaskType);
+				}}
+			/>
 			<FloatButton onPress={() => setShowModal(true)}>
 				<PlusIcon />
 			</FloatButton>
