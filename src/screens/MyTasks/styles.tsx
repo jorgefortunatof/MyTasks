@@ -35,3 +35,9 @@ export const PlusIcon = styled(MaterialCommunityIcons).attrs(() => ({
 `;
 
 export const TaskList = styled(FlatList as new () => FlatList)``;
+
+export const FilterAndCounterContainer = styled.View`
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+`;

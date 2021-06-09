@@ -1,16 +1,24 @@
 import React, { useCallback, useState } from "react";
 import Task from "../../components/Task";
 import TaskCounter from "../../components/TaskCounter";
+import TaskFilter from "../../components/TaskFilter";
 import TaskModal from "../../components/TaskModal";
 import TaskType from "../../types/TaskType";
 
 import { useTasks } from "../../hooks/tasks";
 import { ListRenderItem } from "react-native";
 
-import { Container, Title, PlusIcon, FloatButton, TaskList } from "./styles";
+import {
+	Container,
+	Title,
+	PlusIcon,
+	FloatButton,
+	TaskList,
+	FilterAndCounterContainer,
+} from "./styles";
 
 const MyTask: React.FC = () => {
-	const { tasks } = useTasks();
+	const { filteredTasks } = useTasks();
 
 	const [showModal, setShowModal] = useState(false);
 	const [taskSelected, setTaskSelected] = useState({} as TaskType);
@@ -33,11 +41,14 @@ const MyTask: React.FC = () => {
 			<Container>
 				<Title>Minhas tarefas.</Title>
 
-				<TaskCounter />
+				<FilterAndCounterContainer>
+					<TaskCounter />
+					<TaskFilter />
+				</FilterAndCounterContainer>
 
 				<TaskList
 					keyExtractor={(task) => String(task.id)}
-					data={tasks}
+					data={filteredTasks}
 					renderItem={renderItem}
 				/>
 			</Container>
