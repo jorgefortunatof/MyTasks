@@ -2,8 +2,8 @@
   "background_color": "#ffffff",
   "display": "standalone",
   "lang": "en",
-  "name": "myTask",
-  "short_name": "myTask",
+  "name": "myTasks",
+  "short_name": "myTasks",
   "start_url": "/?utm_source=web_app_manifest",
   "orientation": "portrait",
   "icons": [
