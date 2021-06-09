@@ -20,7 +20,7 @@ import {
 	NoTasksIcon,
 } from "./styles";
 
-const MyTask: React.FC = () => {
+const MyTasks: React.FC = () => {
 	const { filteredTasks, tasks } = useTasks();
 
 	const [showModal, setShowModal] = useState(false);
@@ -81,4 +81,4 @@ const MyTask: React.FC = () => {
 	);
 };
 
-export default MyTask;
+export default MyTasks;
