@@ -9,13 +9,13 @@ yarn
 ```
 
 
-# Como Usar
-Basta executar o comando:
+## Como Usar
+Basta executar o comando para rodar o projeto via navegador:
 ```bash
 yarn web
 ```
 
-para rodar o projeto pelo navegador, ou usar:
+Você pode também executar via emulador através dos comandos:
 
 ```bash
 yarn android
@@ -24,4 +24,3 @@ yarn android
 ```bash
 yarn ios
 ```
-dessa forma executando via emulador.
