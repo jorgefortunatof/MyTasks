@@ -38,6 +38,8 @@ export const TaskList = styled(FlatList as new () => FlatList)``;
 
 export const FilterAndCounterContainer = styled.View`
 	flex-direction: row;
+	flex-wrap: wrap;
+
 	justify-content: space-between;
 	align-items: center;
 `;
