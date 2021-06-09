@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import colors from "../../styles/colors";
 
 export const Picker = styled.Picker`
 	width: 120px;
@@ -10,4 +11,5 @@ export const Picker = styled.Picker`
 
 	border: 0;
 	border-radius: 4px;
+	background-color: ${colors.white};
 `;
