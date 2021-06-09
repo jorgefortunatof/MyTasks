@@ -15,10 +15,13 @@ import {
 	FloatButton,
 	TaskList,
 	FilterAndCounterContainer,
+	NoTasksContainer,
+	NoTasksTitle,
+	NoTasksIcon,
 } from "./styles";
 
 const MyTask: React.FC = () => {
-	const { filteredTasks } = useTasks();
+	const { filteredTasks, tasks } = useTasks();
 
 	const [showModal, setShowModal] = useState(false);
 	const [taskSelected, setTaskSelected] = useState({} as TaskType);
@@ -46,11 +49,20 @@ const MyTask: React.FC = () => {
 					<TaskFilter />
 				</FilterAndCounterContainer>
 
-				<TaskList
-					keyExtractor={(task) => String(task.id)}
-					data={filteredTasks}
-					renderItem={renderItem}
-				/>
+				{tasks.length ? (
+					<TaskList
+						keyExtractor={(task) => String(task.id)}
+						data={filteredTasks}
+						renderItem={renderItem}
+					/>
+				) : (
+					<NoTasksContainer>
+						<NoTasksIcon />
+						<NoTasksTitle>
+							{`Você ainda não possui tarefas!\nclique no botão abaixo para adicionar sua primeira tarefa.`}
+						</NoTasksTitle>
+					</NoTasksContainer>
+				)}
 			</Container>
 
 			<TaskModal

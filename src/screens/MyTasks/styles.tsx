@@ -2,10 +2,13 @@ import styled from "styled-components/native";
 import colors from "../../styles/colors";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { FlatList } from "react-native";
+import { shade } from "polished";
 
 export const Container = styled.View`
+	flex: 1;
 	width: 100%;
 	max-width: 700px;
+
 	padding: 40px 20px;
 `;
 
@@ -42,4 +45,30 @@ export const FilterAndCounterContainer = styled.View`
 
 	justify-content: space-between;
 	align-items: center;
+`;
+
+export const NoTasksContainer = styled.View`
+	margin: 30px;
+
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 12px;
+`;
+
+export const NoTasksTitle = styled.Text`
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+
+	padding: 40px;
+	color: ${colors.black};
+`;
+
+export const NoTasksIcon = styled(MaterialCommunityIcons).attrs(() => ({
+	name: "emoticon-sad-outline",
+}))`
+	font-size: 180px;
+	color: ${colors.black};
 `;

@@ -44,7 +44,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
 			const updatedTask = { ...taskSelected, title, description };
 			updateTask(updatedTask);
 		} else {
-			if (!title) return alert("A tarefa deve conter um titulo!");
+			if (!title) return alert("A tarefa deve conter um título!");
 			addTask({ id: Math.random(), title, description, completed: false });
 		}
 
