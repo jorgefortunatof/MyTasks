@@ -6,6 +6,5 @@ export const Container = styled.SafeAreaView`
 	align-items: center;
 	justify-content: flex-start;
 
-	overflow-y: scroll;
 	background-color: ${colors.primary};
 `;

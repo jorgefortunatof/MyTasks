@@ -37,7 +37,10 @@ export const PlusIcon = styled(MaterialCommunityIcons).attrs(() => ({
 	color: ${colors.white};
 `;
 
-export const TaskList = styled(FlatList as new () => FlatList)``;
+export const TaskList = styled(FlatList as new () => FlatList).attrs(() => ({
+	showsVerticalScrollIndicator: false,
+	showsHorizontalScrollIndicator: false,
+}))``;
 
 export const FilterAndCounterContainer = styled.View`
 	flex-direction: row;
