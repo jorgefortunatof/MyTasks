@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/MyTasks/static/js/app.4921d02e.chunk.js",
-    "app.js.map": "/MyTasks/static/js/app.4921d02e.chunk.js.map",
+    "app.js": "/MyTasks/static/js/app.0a9c0991.chunk.js",
+    "app.js.map": "/MyTasks/static/js/app.0a9c0991.chunk.js.map",
     "runtime~app.js": "/MyTasks/static/js/runtime~app.2cc163e8.js",
     "runtime~app.js.map": "/MyTasks/static/js/runtime~app.2cc163e8.js.map",
-    "static/js/2.f9c9f9c2.chunk.js": "/MyTasks/static/js/2.f9c9f9c2.chunk.js",
-    "static/js/2.f9c9f9c2.chunk.js.map": "/MyTasks/static/js/2.f9c9f9c2.chunk.js.map",
+    "static/js/2.f8c0cbea.chunk.js": "/MyTasks/static/js/2.f8c0cbea.chunk.js",
+    "static/js/2.f8c0cbea.chunk.js.map": "/MyTasks/static/js/2.f8c0cbea.chunk.js.map",
     "fonts/MaterialCommunityIcons.ttf": "/MyTasks/./fonts/MaterialCommunityIcons.ttf",
     "favicon-16.png": "/MyTasks/favicon-16.png",
     "favicon-32.png": "/MyTasks/favicon-32.png",
@@ -13,11 +13,11 @@
     "index.html": "/MyTasks/index.html",
     "manifest.json": "/MyTasks/manifest.json",
     "serve.json": "/MyTasks/serve.json",
-    "static/js/2.f9c9f9c2.chunk.js.LICENSE.txt": "/MyTasks/static/js/2.f9c9f9c2.chunk.js.LICENSE.txt"
+    "static/js/2.f8c0cbea.chunk.js.LICENSE.txt": "/MyTasks/static/js/2.f8c0cbea.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.2cc163e8.js",
-    "static/js/2.f9c9f9c2.chunk.js",
-    "static/js/app.4921d02e.chunk.js"
+    "static/js/2.f8c0cbea.chunk.js",
+    "static/js/app.0a9c0991.chunk.js"
   ]
 }
